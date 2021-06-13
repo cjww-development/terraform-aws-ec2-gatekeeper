@@ -46,8 +46,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_gatekeeper_instance_arn"></a> [gatekeeper\_instance\_arn](#output\_gatekeeper\_instance\_arn) | n/a |
-| <a name="output_gatekeeper_instance_id"></a> [gatekeeper\_instance\_id](#output\_gatekeeper\_instance\_id) | n/a |
-| <a name="output_gatekeeper_instance_public_dns"></a> [gatekeeper\_instance\_public\_dns](#output\_gatekeeper\_instance\_public\_dns) | n/a |
-| <a name="output_gatekeeper_instance_public_ip"></a> [gatekeeper\_instance\_public\_ip](#output\_gatekeeper\_instance\_public\_ip) | n/a |
+| <a name="output_gatekeeper_instance_arn"></a> [gatekeeper\_instance\_arn](#output\_gatekeeper\_instance\_arn) | ARN of the created instance |
+| <a name="output_gatekeeper_instance_id"></a> [gatekeeper\_instance\_id](#output\_gatekeeper\_instance\_id) | Id of the created instance |
+| <a name="output_gatekeeper_instance_public_dns"></a> [gatekeeper\_instance\_public\_dns](#output\_gatekeeper\_instance\_public\_dns) | Public DNS of the created instance |
+| <a name="output_gatekeeper_instance_public_ip"></a> [gatekeeper\_instance\_public\_ip](#output\_gatekeeper\_instance\_public\_ip) | Public IP of the created instance |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
