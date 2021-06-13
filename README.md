@@ -44,5 +44,10 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_gatekeeper_instance_arn"></a> [gatekeeper\_instance\_arn](#output\_gatekeeper\_instance\_arn) | n/a |
+| <a name="output_gatekeeper_instance_id"></a> [gatekeeper\_instance\_id](#output\_gatekeeper\_instance\_id) | n/a |
+| <a name="output_gatekeeper_instance_public_dns"></a> [gatekeeper\_instance\_public\_dns](#output\_gatekeeper\_instance\_public\_dns) | n/a |
+| <a name="output_gatekeeper_instance_public_ip"></a> [gatekeeper\_instance\_public\_ip](#output\_gatekeeper\_instance\_public\_ip) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
