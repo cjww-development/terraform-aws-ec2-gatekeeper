@@ -9,11 +9,6 @@ data "aws_ami" "amazon_linux_2" {
 
   owners = ["amazon"]
 }
-
-data "aws_iam_instance_profile" "gk_instance_role" {
-  name = "GatekeeperInstanceRole"
-}
-
 resource "aws_instance" "gatekeeper" {
   ami           = data.aws_ami.amazon_linux_2.id
   instance_type = var.ec2_instance_type
@@ -28,11 +23,14 @@ resource "aws_instance" "gatekeeper" {
 
   subnet_id = aws_default_subnet.default_subnet_a.id
 
-  iam_instance_profile = data.aws_iam_instance_profile.gk_instance_role.name
+  iam_instance_profile = aws_iam_instance_profile.gk_instance_role.name
 
   //  user_data = ""
   //  user_data_base64 = ""
 
+  monitoring = true
+
+  ebs_optimized = true
   root_block_device {
     encrypted   = true
     volume_size = 0
