@@ -3,10 +3,10 @@ variable "ec2_instance_type" {
   description = "What instance type ec2 should adopt. t4g.micro is currently the smallest and cheapest gatekeeper can run on."
 }
 
-variable "ssh_key_name" {
-  type        = string
-  description = "Name of the ssh key pair used to ssh into the instance."
-}
+# variable "ssh_key_name" {
+#   type        = string
+#   description = "Name of the ssh key pair used to ssh into the instance."
+# }
 
 variable "allowed_https_ip_cidr_blocks_inbound" {
   type        = list(string)

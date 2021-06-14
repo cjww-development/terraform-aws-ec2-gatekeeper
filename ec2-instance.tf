@@ -13,7 +13,7 @@ resource "aws_instance" "gatekeeper" {
   ami           = data.aws_ami.amazon_linux_2.id
   instance_type = var.ec2_instance_type
 
-  key_name = var.ssh_key_name
+  //key_name = var.ssh_key_name
 
   vpc_security_group_ids = [
     aws_security_group.https_traffic.id,

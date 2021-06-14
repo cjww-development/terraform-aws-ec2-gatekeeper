@@ -40,7 +40,6 @@ No modules.
 | <a name="input_allowed_ssh_ip_cidr_blocks_inbound"></a> [allowed\_ssh\_ip\_cidr\_blocks\_inbound](#input\_allowed\_ssh\_ip\_cidr\_blocks\_inbound) | Networks that are allowed to access the ec2 instance via ssh (port 22) | `list(string)` | n/a | yes |
 | <a name="input_ec2_instance_type"></a> [ec2\_instance\_type](#input\_ec2\_instance\_type) | What instance type ec2 should adopt. t4g.micro is currently the smallest and cheapest gatekeeper can run on. | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | AWS region the IaC should be deployed into. | `string` | n/a | yes |
-| <a name="input_ssh_key_name"></a> [ssh\_key\_name](#input\_ssh\_key\_name) | Name of the ssh key pair used to ssh into the instance. | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags associated with resources. | `map(string)` | n/a | yes |
 
 ## Outputs
