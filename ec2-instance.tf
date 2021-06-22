@@ -1,4 +1,3 @@
-
 data "aws_ami" "amazon_linux_2" {
   most_recent = true
 
@@ -9,38 +8,26 @@ data "aws_ami" "amazon_linux_2" {
 
   owners = ["amazon"]
 }
+
 resource "aws_instance" "gatekeeper" {
   ami           = data.aws_ami.amazon_linux_2.id
   instance_type = var.ec2_instance_type
 
-  //key_name = var.ssh_key_name
-
   vpc_security_group_ids = [
     aws_security_group.https_traffic.id,
+    aws_security_group.http_traffic.id,
     aws_security_group.ssh_traffic.id,
-    aws_security_group.outbound_traffic.id
+    aws_security_group.docker_socket_traffic.id,
+    aws_security_group.outbound_traffic.id,
   ]
 
   subnet_id = aws_default_subnet.default_subnet_a.id
 
   iam_instance_profile = aws_iam_instance_profile.gk_instance_role.name
 
-  //  user_data = ""
-  //  user_data_base64 = ""
+  user_data = file(var.user_data_file_path)
 
   monitoring = true
-
-  ebs_optimized = true
-  root_block_device {
-    encrypted   = true
-    volume_size = 0
-    volume_type = "standard"
-  }
-
-  metadata_options {
-    http_endpoint = "enabled"
-    http_tokens   = "required"
-  }
 
   tags = var.tags
 }
