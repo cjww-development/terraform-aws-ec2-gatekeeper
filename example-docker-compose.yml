@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  gatekeeper:
+    image: cjwwdevelopment/gatekeeper:0.31.0
+    restart: always
+    ports:
+      - 127.0.0.1:5678:80
+    environment:
+      VERSION: "0.31.0"
+      EMAIL_FROM: "email to send Gatekeeper emails from"
+      MONGO_URI: "connection string to connect to MongoDB"
+      APP_SECRET: "Application secret used to sign cookies"
+      ENC_KEY: "Key used to secure data"
+      MFA_ISSUER: "Gatekeeper"
+      SMS_SENDER_ID: "GKVerify"
+      WKC_ISSUER: "https://gatekeeper.your-domain.com/gatekeeper"

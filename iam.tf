@@ -1,25 +1,26 @@
 resource "aws_iam_instance_profile" "gk_instance_role" {
   name = "GatekeeperInstanceRole"
-  role = aws_iam_role.role.name
+  role = aws_iam_role.gk_role.name
 }
 
-resource "aws_iam_role" "role" {
-  name = "GatekeeperInstanceRolePolicy"
-  path = "/"
+data "aws_iam_policy_document" "gk_role" {
+  statement {
+    sid    = "AssumeRole"
+    effect = "Allow"
 
-  assume_role_policy = <<EOF
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": "sts:AssumeRole",
-            "Principal": {
-               "Service": "ec2.amazonaws.com"
-            },
-            "Effect": "Allow",
-            "Sid": ""
-        }
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+
+    actions = [
+      "sts:AssumeRole"
     ]
+  }
 }
-EOF
+
+resource "aws_iam_role" "gk_role" {
+  name               = "GatekeeperInstanceRole"
+  path               = "/"
+  assume_role_policy = data.aws_iam_policy_document.gk_role.json
 }
