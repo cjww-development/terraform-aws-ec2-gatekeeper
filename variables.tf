@@ -8,19 +8,9 @@ variable "allowed_https_ip_cidr_blocks_inbound" {
   description = "Networks that are allowed to access the ec2 instance via https (port 443)"
 }
 
-variable "allowed_ssh_ip_cidr_blocks_inbound" {
-  type        = list(string)
-  description = "Networks that are allowed to access the ec2 instance via ssh (port 22)"
-}
-
 variable "allowed_general_ip_cidr_blocks_outbound" {
   type        = list(string)
   description = "Networks that are allowed to be accessed by ec2 instance on outbound connections"
-}
-
-variable "allowed_docker_socket_ip_cidr_blocks_inbound" {
-  type        = list(string)
-  description = "Networks that are allowed to access the ec2 instance via docker (port 2376)"
 }
 
 variable "region" {
