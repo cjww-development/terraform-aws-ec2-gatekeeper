@@ -15,9 +15,6 @@ resource "aws_instance" "gatekeeper" {
 
   vpc_security_group_ids = [
     aws_security_group.https_traffic.id,
-    aws_security_group.http_traffic.id,
-    aws_security_group.ssh_traffic.id,
-    aws_security_group.docker_socket_traffic.id,
     aws_security_group.outbound_traffic.id,
   ]
 

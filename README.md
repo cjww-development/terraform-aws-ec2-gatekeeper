@@ -66,11 +66,8 @@ No modules.
 | [aws_s3_bucket_object.ssl_dhparams](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object) | resource |
 | [aws_s3_bucket_object.ssl_options](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object) | resource |
 | [aws_s3_bucket_public_access_block.gatekeeper_resources](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
-| [aws_security_group.docker_socket_traffic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
-| [aws_security_group.http_traffic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
 | [aws_security_group.https_traffic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
 | [aws_security_group.outbound_traffic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
-| [aws_security_group.ssh_traffic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
 | [aws_ami.amazon_linux_2](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
 | [aws_iam_policy_document.gatekeeper_resources_bucket_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.gk_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
@@ -79,10 +76,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_allowed_docker_socket_ip_cidr_blocks_inbound"></a> [allowed\_docker\_socket\_ip\_cidr\_blocks\_inbound](#input\_allowed\_docker\_socket\_ip\_cidr\_blocks\_inbound) | Networks that are allowed to access the ec2 instance via docker (port 2376) | `list(string)` | n/a | yes |
 | <a name="input_allowed_general_ip_cidr_blocks_outbound"></a> [allowed\_general\_ip\_cidr\_blocks\_outbound](#input\_allowed\_general\_ip\_cidr\_blocks\_outbound) | Networks that are allowed to be accessed by ec2 instance on outbound connections | `list(string)` | n/a | yes |
 | <a name="input_allowed_https_ip_cidr_blocks_inbound"></a> [allowed\_https\_ip\_cidr\_blocks\_inbound](#input\_allowed\_https\_ip\_cidr\_blocks\_inbound) | Networks that are allowed to access the ec2 instance via https (port 443) | `list(string)` | n/a | yes |
-| <a name="input_allowed_ssh_ip_cidr_blocks_inbound"></a> [allowed\_ssh\_ip\_cidr\_blocks\_inbound](#input\_allowed\_ssh\_ip\_cidr\_blocks\_inbound) | Networks that are allowed to access the ec2 instance via ssh (port 22) | `list(string)` | n/a | yes |
 | <a name="input_docker_compose_file_path"></a> [docker\_compose\_file\_path](#input\_docker\_compose\_file\_path) | Path to the docker compose file to boot Gatekeeper | `string` | n/a | yes |
 | <a name="input_ec2_instance_type"></a> [ec2\_instance\_type](#input\_ec2\_instance\_type) | What instance type ec2 should adopt. t3a.micro is currently the smallest and cheapest gatekeeper can run on. | `string` | n/a | yes |
 | <a name="input_force_bucket_destroy"></a> [force\_bucket\_destroy](#input\_force\_bucket\_destroy) | Force the destruction of the bucket and ALL data therein | `bool` | n/a | yes |
