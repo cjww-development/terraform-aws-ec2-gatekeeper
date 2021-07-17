@@ -1,6 +1,20 @@
 version: "3.7"
 
+networks:
+  db-net:
+    name: db-net
+    driver: bridge
+
 services:
+  #Mongo can be omitted if you're connecting to a cloud service like MongoDB Atlas
+  mongo:
+    image: mongo:latest
+    container_name: mongo.local
+    hostname: mongo.local
+    ports:
+      - 27017:27017
+    networks:
+      - db-net
   gatekeeper:
     image: cjwwdevelopment/gatekeeper:0.31.0
     restart: always
@@ -15,3 +29,13 @@ services:
       MFA_ISSUER: "Gatekeeper"
       SMS_SENDER_ID: "GKVerify"
       WKC_ISSUER: "https://gatekeeper.your-domain.com/gatekeeper"
+      #Email settings
+      EMAIL_PROVIDER: "ses" #Can be "ses" or "mail-gun"
+      AWS_IDENTITY_ARN: "arn:aws:ses:<your-region>:<account-the-ses-identity-lives-in>:identity/<the-identity>"
+      #If the above is ses
+      AWS_REGION: "eu-west-2" #Or what ever region you're running SES from
+      #If the above is mail-gun
+      MAILGUN_API_KEY: "" #Obtained from the mailgun console
+      MAILGUN_URL: "" #Obtained from the mailgun console
+    networks:
+      - db-net
